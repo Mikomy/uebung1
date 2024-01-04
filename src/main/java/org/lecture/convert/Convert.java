@@ -8,6 +8,12 @@ public class Convert implements NumberSystemConverter {
     String result = null;
     private final SaveResult saveResult = new SaveResult();
 
+    /**
+     * Performs number system conversion based on the given CalculatorRAM.
+     *
+     * @param calculatorRAM The CalculatorRAM containing input values and the number systems to be converted.
+     * @return The result of the number system conversion.
+     */
     @Override
     public String convert(CalculatorRAM calculatorRAM) {
         String operator = calculatorRAM.getInputs().get(0).getOperator();
@@ -41,6 +47,7 @@ public class Convert implements NumberSystemConverter {
         }
         return null;
     }
+
 
     private void convertHexadecimalTo(CalculatorRAM calculatorRAM) {
         String num1 = calculatorRAM.getInputs().get(0).getNum1();
@@ -173,6 +180,9 @@ public class Convert implements NumberSystemConverter {
         return sbresult.toString();
     }
 
+    /**
+     * Change the partial number of input to hexadecimal character
+     */
     private String getHexadecimal(String hexadecimalChar) {
         if (hexadecimalChar.equals("10")) {
             hexadecimalChar = "A";
@@ -195,6 +205,9 @@ public class Convert implements NumberSystemConverter {
         return hexadecimalChar;
     }
 
+    /**
+     * Change the partial hexadecimal number of the input to  decimal number
+     */
     private String hexadecimalWriteFormToDecimal(String hexadecimalDigit) {
         if (hexadecimalDigit.equals("A")) {
             return "10";

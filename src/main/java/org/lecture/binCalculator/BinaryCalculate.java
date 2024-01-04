@@ -16,6 +16,12 @@ public class BinaryCalculate implements BinCalculate {
 
     String result = null;
 
+    /**
+     * Performs binary calculation based on the given CalculatorRAM.
+     *
+     * @param calculatorRAM The CalculatorRAM containing binary input values and the operation to be performed.
+     * @return The result of the binary calculation.
+     */
     @Override
     public String binaryCalculate(CalculatorRAM calculatorRAM) {
         String operator = calculatorRAM.getInputs().get(0).getOperator();
@@ -48,24 +54,28 @@ public class BinaryCalculate implements BinCalculate {
         return null;
     }
 
-
-
-
+    /**
+     * Protected method to perform binary addition.
+     *
+     * @param binNum1 The first binary number.
+     * @param binNum2 The second binary number.
+     * @return The result of binary addition.
+     */
     protected String calculatAddition(String binNum1, String binNum2) {
         int binNum1Length = binNum1.length();
         int binNum2Length = binNum2.length();
 
         while (binNum1Length < binNum2Length) {
             binNum1 = "0" + binNum1;
-            binNum1Length ++;
+            binNum1Length++;
         }
         while (binNum1Length > binNum2Length) {
             binNum2 = "0" + binNum2;
-            binNum2Length ++;
+            binNum2Length++;
         }
         StringBuilder sbResult = new StringBuilder();
         int carry = 0;
-        for (int i = binNum1Length-1; i >= 0; i--) {
+        for (int i = binNum1Length - 1; i >= 0; i--) {
             char char1 = binNum1.charAt(i);
             char char2 = binNum2.charAt(i);
 
@@ -90,21 +100,28 @@ public class BinaryCalculate implements BinCalculate {
         return sbResult.toString();
     }
 
+    /**
+     * Protected method to perform binary subtraction.
+     *
+     * @param binNum1 The first binary number.
+     * @param binNum2 The second binary number.
+     * @return The result of binary subtraction.
+     */
     protected String calculatSubtraction(String binNum1, String binNum2) {
         int binNum1Length = binNum1.length();
         int binNum2Length = binNum2.length();
 
         while (binNum1Length < binNum2Length) {
             binNum1 = "0" + binNum1;
-            binNum1Length ++;
+            binNum1Length++;
         }
         while (binNum1Length > binNum2Length) {
             binNum2 = "0" + binNum2;
-            binNum2Length ++;
+            binNum2Length++;
         }
         StringBuilder sbResult = new StringBuilder();
         int carry = 0;
-        for (int i = binNum1Length-1; i >= 0; i--) {
+        for (int i = binNum1Length - 1; i >= 0; i--) {
             char char1 = binNum1.charAt(i);
             char char2 = binNum2.charAt(i);
 
@@ -112,7 +129,7 @@ public class BinaryCalculate implements BinCalculate {
             int bit2 = (char2 == '1') ? 1 : 0;
 
             int sum = bit1 - bit2 - carry;
-            char charResult = (sum  == 0) ? '0' : '1';
+            char charResult = (sum == 0) ? '0' : '1';
 
             /*
             sbResult.insert(0, ... ): This part inserts the character calculated in the previous step at the beginning
@@ -127,18 +144,25 @@ public class BinaryCalculate implements BinCalculate {
         return sbResult.toString();
     }
 
+    /**
+     * Protected method to perform binary multiplication.
+     *
+     * @param binNum1 The first binary number.
+     * @param binNum2 The second binary number.
+     * @return The result of binary multiplication.
+     */
     protected String calculatMultiplication(String binNum1, String binNum2) {
         String resultMultiplication = "0";
         List<String> partialResult = new ArrayList<>();
-        partialResult.add(0,"0");
-        partialResult.add(1,"0");
+        partialResult.add(0, "0");
+        partialResult.add(1, "0");
 
-        for (int i = 0; i <= (binNum2.length()-1); i++) {
+        for (int i = 0; i <= (binNum2.length() - 1); i++) {
             StringBuilder sbPartialResult = new StringBuilder();
             char char2 = binNum2.charAt(i);
-            for (int j = (binNum1.length()-1); j >= 0; j--) {
-                if ((i <= (binNum2.length()-2)) && (j <= (binNum2.length()-2) )) {
-                    sbPartialResult.append( '0');
+            for (int j = (binNum1.length() - 1); j >= 0; j--) {
+                if ((i <= (binNum2.length() - 2)) && (j <= (binNum2.length() - 2))) {
+                    sbPartialResult.append('0');
                 }
 
                 char char1 = binNum1.charAt(j);
@@ -159,24 +183,31 @@ public class BinaryCalculate implements BinCalculate {
         return resultMultiplication;
     }
 
+    /**
+     * Protected method to perform binary division.
+     *
+     * @param binNum1 The numerator binary number.
+     * @param binNum2 The denominator binary number.
+     * @return The result of binary division.
+     */
     protected String calculatDivision(String binNum1, String binNum2) {
 
         StringBuilder sbPartialResult = new StringBuilder();
         StringBuilder sbResult = new StringBuilder();
         int num2 = Integer.parseInt(binNum2);
 
-        for (int i = 0; i <= (binNum1.length()-1); i++) {
+        for (int i = 0; i <= (binNum1.length() - 1); i++) {
             char nextCharNum2 = binNum1.charAt(i);
             sbPartialResult.append(nextCharNum2);
 
             int partialNum1 = Integer.parseInt(String.valueOf(sbPartialResult));
-                if(partialNum1 >= num2) {
-                    sbPartialResult= new StringBuilder(calculatSubtraction(String.valueOf(sbPartialResult), binNum2));
-                    sbResult.append("1");
-                } else {
-                    sbResult.append("0");
-                }
+            if (partialNum1 >= num2) {
+                sbPartialResult = new StringBuilder(calculatSubtraction(String.valueOf(sbPartialResult), binNum2));
+                sbResult.append("1");
+            } else {
+                sbResult.append("0");
             }
+        }
         return String.valueOf(sbResult);
     }
 }
