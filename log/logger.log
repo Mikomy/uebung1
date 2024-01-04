@@ -1,0 +1,25 @@
+2023-06-10 15:52:53 [main] INFO  o.l.g.zitrone.ConcreteZitronen - Creating Product
+2023-06-10 15:56:51 [main] INFO  o.l.g.zitrone.ConcreteZitronen - Creating Product
+2023-06-10 15:59:59 [main] INFO  o.l.g.zitrone.ConcreteZitronen - Creating Product
+2023-06-10 16:04:13 [main] INFO  o.l.g.zitrone.ConcreteZitronen - Creating Product
+2023-06-10 16:04:28 [main] INFO  o.l.g.zitrone.ConcreteZitronen - Creating Product
+2023-06-10 16:04:32 [main] INFO  o.l.g.cola.ConcreteCola - Creating Product
+2023-06-10 16:05:12 [main] INFO  o.l.g.cola.ConcreteCola - Creating Product
+2023-06-10 16:05:12 [main] INFO  o.l.g.orangenSaft.ConcreteOrangen - Creating Product
+2023-06-10 16:05:12 [main] INFO  o.l.g.orangenSaft.ConcreteOrangen - Creating Product
+2023-06-10 16:05:12 [main] INFO  o.l.g.soda.ConcreteSoda - Creating Product
+2023-06-10 16:28:46 [main] INFO  o.l.g.zitrone.ConcreteZitronen - Creating Product
+2023-06-10 16:28:46 [main] INFO  o.l.g.zitrone.ConcreteZitronen - Creating Product
+2023-06-10 16:28:46 [main] INFO  o.l.g.cola.ConcreteCola - Creating Product
+2023-06-10 16:28:46 [main] INFO  o.l.g.cola.ConcreteCola - Creating Product
+2023-06-10 16:28:46 [main] INFO  o.l.g.orangenSaft.ConcreteOrangen - Creating Product
+2023-06-10 16:28:46 [main] INFO  o.l.g.orangenSaft.ConcreteOrangen - Creating Product
+2023-06-10 16:28:46 [main] INFO  o.l.g.soda.ConcreteSoda - Creating Product
+2023-06-10 16:29:58 [main] DEBUG o.l.g.OrderService - Show the available products - selected
+2023-06-10 16:29:58 [main] INFO  o.l.g.zitrone.ConcreteZitronen - Creating Product
+2023-06-10 16:29:59 [main] INFO  o.l.g.zitrone.ConcreteZitronen - Creating Product
+2023-06-10 16:29:59 [main] INFO  o.l.g.cola.ConcreteCola - Creating Product
+2023-06-10 16:29:59 [main] INFO  o.l.g.cola.ConcreteCola - Creating Product
+2023-06-10 16:29:59 [main] INFO  o.l.g.orangenSaft.ConcreteOrangen - Creating Product
+2023-06-10 16:29:59 [main] INFO  o.l.g.orangenSaft.ConcreteOrangen - Creating Product
+2023-06-10 16:29:59 [main] INFO  o.l.g.soda.ConcreteSoda - Creating Product

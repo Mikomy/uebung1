@@ -1,0 +1,102 @@
+package org.lecture;
+
+import lombok.extern.slf4j.Slf4j;
+import org.lecture.binCalculator.BinCalculate;
+import org.lecture.binCalculator.BinCalculateFactory;
+import org.lecture.convert.NumberSystemConverter;
+import org.lecture.convert.Convert;
+import org.lecture.convert.ConvertFactory;
+import org.lecture.dezCalculate.DezimalCalculate;
+import org.lecture.dezCalculate.DezimalCalculateFactory;
+
+import java.util.Scanner;
+
+@Slf4j
+public class MenuNumberSystemConverter {
+    private Scanner scanner = new Scanner(System.in);
+    private CalculatorRAM calculatorRAM;
+    private BinCalculate binaryBinCalculate = BinCalculateFactory.createInstance();
+    private DezimalCalculate dezimalCalculate = DezimalCalculateFactory.createInstance();
+    private NumberSystemConverter convert = ConvertFactory.createInstance();
+    private SaveResult saveResult = new SaveResult();
+    private String result = null;
+    public MenuNumberSystemConverter(CalculatorRAM calculatorRAM) {this.calculatorRAM = calculatorRAM;}
+    public void runMenu() {
+/*
+        String menu = """
+                     
+                     ------------              -----------             -----------              ----------
+                    |  Press 1  |             |  Press 2  |           |  Press 3  |            |  Press 9 |
+                    |    for    |             |    for    |           |    for    |            |    for   |
+                     ------------              ------------            -----------               ----------
+                    Enter  - number              Select                  Enter           ==      result
+                  a Number   system             Operation                3.Part
+                """;
+  */
+        String menu = """
+   ------------------------------------------------
+  |  Press 1  |  Enter a number in a specific system  |
+  |  Press 2  |  Choose an Arithmetic Operation       |
+  |  Press 3  |  Enter second numbers for calculation  |
+  |  Press 9  |  Perform a final conversion           |
+   ------------------------------------------------
+  Enter your choice: """;
+        scanner = new Scanner(System.in);
+        calculatorRAM.createInput0(calculatorRAM);
+        EnterInput enterInput = new EnterInput(calculatorRAM);
+        boolean loop = true;
+        System.out.println("\n---\nWelcom to the Number Converter!\n---\n");
+        while (loop) {
+            System.out.println(menu);
+            calculatorRAM.printCalculatorRAM();
+            String input = scanner.nextLine();
+
+            switch (input) {
+                case "1" -> {
+                    log.debug("Enter a number");
+                    enterInput.enterNumber();
+                }
+                case "2" -> {
+                    log.debug("Select an operation");
+                    enterInput.enterOperation();
+                }
+                case "3" -> {
+                    log.debug("Enter the 3.part");
+                    enterInput.enter3PArt();
+                }
+                case "9" -> {
+                    log.debug("binaryCalculate");
+                    calculate(calculatorRAM);
+
+                }
+                default -> System.out.println("invalid input " + input);
+            }
+        }
+
+    }
+
+    private void calculate(CalculatorRAM calculatorRAM) {
+        String numberSystem1 = calculatorRAM.getInputs().get(0).getNumberSystem1();
+        String numberSystem2 = calculatorRAM.getInputs().get(0).getNumberSystem2();
+        String operation = calculatorRAM.getInputs().get(0).getOperator();
+        if (numberSystem1 != null && operation != null && numberSystem2 != null) {
+            if (numberSystem1.equalsIgnoreCase("BINARY") && numberSystem2.equalsIgnoreCase("BINARY")) {
+                result = binaryBinCalculate.binaryCalculate(calculatorRAM);
+                saveResult.saveResult(calculatorRAM, result);
+            }
+            else if (numberSystem1.equalsIgnoreCase("DECIMAL") && numberSystem2.equalsIgnoreCase("DECIMAL")) {
+                result = dezimalCalculate.dezimalCalculate(calculatorRAM);
+                saveResult.saveResult(calculatorRAM, result);
+            }
+            else if (!numberSystem1.equals(numberSystem2) && operation.equalsIgnoreCase("CONVERT")) {
+                result = convert.convert(calculatorRAM);
+                saveResult.saveResult(calculatorRAM, result);
+            }else {
+                System.out.println("\n---[INFO]---\nIf the number system are different, only the convert operation will be working\n---\n");
+            }
+        }else {
+            System.out.println("\n---[INFO]---\nResult expected only after filling in the subfields\n---\n");
+        }
+    }
+
+}
