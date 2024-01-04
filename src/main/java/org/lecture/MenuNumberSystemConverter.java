@@ -20,7 +20,10 @@ public class MenuNumberSystemConverter {
     private NumberSystemConverter convert = ConvertFactory.createInstance();
     private SaveResult saveResult = new SaveResult();
     private String result = null;
-    public MenuNumberSystemConverter(CalculatorRAM calculatorRAM) {this.calculatorRAM = calculatorRAM;}
+    public MenuNumberSystemConverter(CalculatorRAM calculatorRAM) {
+        this.calculatorRAM = calculatorRAM;
+        this.scanner = new Scanner(System.in);
+    }
     public void runMenu() {
 /*
         String menu = """
@@ -41,7 +44,6 @@ public class MenuNumberSystemConverter {
   |  Press 9  |  Perform a final conversion           |
    ------------------------------------------------
   Enter your choice: """;
-        scanner = new Scanner(System.in);
         calculatorRAM.createInput0(calculatorRAM);
         EnterInput enterInput = new EnterInput(calculatorRAM);
         boolean loop = true;
