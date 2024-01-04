@@ -12,6 +12,13 @@ import java.util.TreeMap;
 public class CalculatorRAM {
     private final Map<Integer, Inputs> inputMap = new TreeMap<>();
 
+
+    /**
+     * Adds an Inputs object to the CalculatorRAM with the specified ID.
+     *
+     * @param id     The unique identifier for the Inputs object.
+     * @param inputs The Inputs object to be added.
+     */
     public void add(Integer id, Inputs inputs) {
         this.inputMap.put(id, inputs);
     }
@@ -20,16 +27,32 @@ public class CalculatorRAM {
         this.inputMap.remove(id);
     }
 
+    /**
+     * Retrieves the map containing Inputs objects stored in the CalculatorRAM.
+     *
+     * @return The map of Inputs objects in the CalculatorRAM.
+     */
     public Map<Integer, Inputs> getInputs() {
         return this.inputMap;
     }
 
+    /**
+     * Creates and adds an Inputs object with ID 0 to the CalculatorRAM.
+     *
+     * @param calculatorRAM The CalculatorRAM instance to which the Inputs object is added.
+     */
     public void createInput0(CalculatorRAM calculatorRAM) {
         Inputs.InputsBuilder inputBuilder = new Inputs.InputsBuilder();
         Inputs inputs = inputBuilder.build();
         calculatorRAM.add(0, inputs);
     }
 
+    /**
+     * Updates the Inputs object at the specified index with the provided updatedInputs.
+     *
+     * @param i The index of the Inputs object to be updated.
+     * @param updatedInputs The updated Inputs object.
+     */
     public void set(int i, Inputs updatedInputs) {
         if (inputMap.containsKey(i)) {
             inputMap.put(i, updatedInputs);
@@ -39,6 +62,9 @@ public class CalculatorRAM {
 
     }
 
+    /**
+     * Prints the contents of the CalculatorRAM, displaying input data for calculations.
+     */
     public void printCalculatorRAM() {
         for (Map.Entry<Integer, Inputs> entry : this.inputMap.entrySet()) {
             int id = entry.getKey();

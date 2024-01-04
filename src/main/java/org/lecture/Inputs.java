@@ -2,7 +2,11 @@ package org.lecture;
 
 import lombok.Builder;
 import lombok.Getter;
-
+/**
+ * The Inputs class represents the input values for calculations in various number systems.
+ * It includes information such as the first number, its number system, the operator, the second number,
+ * its number system, and the result of the calculation.
+ */
 @Getter
 @Builder
 public class Inputs {

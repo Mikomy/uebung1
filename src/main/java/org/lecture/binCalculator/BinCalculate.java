@@ -2,7 +2,8 @@ package org.lecture.binCalculator;
 
 import org.lecture.CalculatorRAM;
 /**
- * Interface for binary calculation operations in a calculator.
+ * The BinCalculate interface defines the contract for classes that perform binary calculations.
+ * Classes implementing this interface should provide the logic for binary calculations based on the provided CalculatorRAM.
  */
 public interface BinCalculate {
      /**

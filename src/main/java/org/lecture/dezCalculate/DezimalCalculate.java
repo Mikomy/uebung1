@@ -7,6 +7,12 @@ import org.lecture.SaveResult;
 public class DezimalCalculate implements DezCalculate {
     private final SaveResult saveResult = new SaveResult();
 
+    /**
+     * Performs decimal calculation based on the given CalculatorRAM.
+     *
+     * @param calculatorRAM The CalculatorRAM containing decimal input values and the operation to be performed.
+     * @return The result of the decimal calculation.
+     */
     @Override
     public String dezimalCalculate(CalculatorRAM calculatorRAM) {
         String operator = calculatorRAM.getInputs().get(0).getOperator();

@@ -11,13 +11,27 @@ import org.lecture.dezCalculate.DezimalCalculateFactory;
 
 import java.util.Scanner;
 
+/**
+ * The MenuNumberSystemConverter class represents a menu-driven number system converter.
+ * It allows users to input numbers in various number systems, perform arithmetic operations, and convert between number systems.
+ * The menu-driven interface guides the user through the conversion process.
+ */
 @Slf4j
 public class MenuNumberSystemConverter {
     private Scanner scanner = new Scanner(System.in);
+
     private CalculatorRAM calculatorRAM;
+        //CalculatorRAM instance for storing and managing input data.
+
     private BinCalculate binaryBinCalculate = BinCalculateFactory.createInstance();
+        //Binary number calculator instance.
+
     private DezimalCalculate dezimalCalculate = DezimalCalculateFactory.createInstance();
+        //Decimal number calculator instance.
+
     private NumberSystemConverter convert = ConvertFactory.createInstance();
+        //Number system converter instance.
+
     private SaveResult saveResult = new SaveResult();
     private String result = null;
     public MenuNumberSystemConverter(CalculatorRAM calculatorRAM) {
@@ -41,7 +55,7 @@ public class MenuNumberSystemConverter {
   |  Press 1  |  Enter a number in a specific system  |
   |  Press 2  |  Choose an Arithmetic Operation       |
   |  Press 3  |  Enter second numbers for calculation  |
-  |  Press 9  |  Perform a final conversion           |
+  |  Press 9  |  Get a result           |
    ------------------------------------------------
   Enter your choice: """;
         calculatorRAM.createInput0(calculatorRAM);
@@ -77,6 +91,11 @@ public class MenuNumberSystemConverter {
 
     }
 
+    /**
+     * Performs the calculation based on user inputs and saves the result.
+     *
+     * @param calculatorRAM The CalculatorRAM instance.
+     */
     private void calculate(CalculatorRAM calculatorRAM) {
         String numberSystem1 = calculatorRAM.getInputs().get(0).getNumberSystem1();
         String numberSystem2 = calculatorRAM.getInputs().get(0).getNumberSystem2();
