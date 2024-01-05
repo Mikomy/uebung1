@@ -8,10 +8,11 @@ import java.util.Scanner;
  */
 public class EnterInput {
     private CalculatorRAM calculatorRAM;
-    private static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner;
 
     public EnterInput(CalculatorRAM calculatorRAM) {
         this.calculatorRAM = calculatorRAM;
+        scanner = new Scanner(System.in);
     }
 
     /**
@@ -94,7 +95,7 @@ public class EnterInput {
     /**
      * Allows the user to input Num2 and updates the CalculatorRAM accordingly.
      */
-    private void enterNum2() {
+    protected void enterNum2() {
         String numberSystem2 = null;
         String num2 = null;
         while (numberSystem2 == null) {
@@ -299,7 +300,7 @@ public class EnterInput {
      *
      * @return The selected number system if valid; null if the input is invalid.
      */
-    private String validnumberSystem() {
+    protected String validnumberSystem() {
         System.out.println("Which number system would you like to use?");
         System.out.println("Supported number systems:\n 1 Decimal,\n 2 Binary,\n 3 Hexadecimal,\n 4 Octal\n");
         System.out.println("Enter the number of the Supported number system please");

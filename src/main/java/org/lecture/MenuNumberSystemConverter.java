@@ -51,12 +51,13 @@ public class MenuNumberSystemConverter {
                 """;
   */
         String menu = """
-   ------------------------------------------------
-  |  Press 1  |  Enter a number in a specific system  |
-  |  Press 2  |  Choose an Arithmetic Operation       |
-  |  Press 3  |  Enter second numbers for calculation  |
-  |  Press 9  |  Get a result           |
-   ------------------------------------------------
+   -----------------------------------------------------
+  |  Press 1  |  Enter a number in a specific system    |
+  |  Press 2  |  Choose an Arithmetic Operation         |
+  |  Press 3  |  Enter second numbers for calculation   |
+  |  Press 9  |  Get a result                           |
+  |  Press 0  |  EXIT                                   |
+   -----------------------------------------------------
   Enter your choice: """;
         calculatorRAM.createInput0(calculatorRAM);
         EnterInput enterInput = new EnterInput(calculatorRAM);
@@ -83,8 +84,8 @@ public class MenuNumberSystemConverter {
                 case "9" -> {
                     log.debug("binaryCalculate");
                     calculate(calculatorRAM);
-
                 }
+                case "0" -> loop = false;
                 default -> System.out.println("invalid input " + input);
             }
         }
