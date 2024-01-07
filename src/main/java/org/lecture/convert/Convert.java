@@ -55,7 +55,7 @@ public class Convert implements NumberSystemConverter {
 
         switch (num2System) {
             case "DECIMAL" -> {
-                result = convertToDecimal(num1, 8);
+                result = convertToDecimal(num1, 16);
             }
             case "BINARY" -> {
                 String num1Decimal = convertToDecimal(num1, 16);
