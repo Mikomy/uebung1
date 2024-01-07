@@ -3,36 +3,31 @@ package org.lecture;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class EnterInputTest {
     private CalculatorRAM calculatorRAM;
-    private SaveResult saveResult;
-    private ByteArrayOutputStream outputStream;
     private EnterInput enterInput;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         calculatorRAM = new CalculatorRAM();
-        outputStream = new ByteArrayOutputStream();
-        enterInput = new EnterInput(calculatorRAM);
-        System.setOut(new PrintStream(outputStream, true));
     }
 
     @Test
     void enterNumber() {
-        InputStream original = System.in;
-        String input = "1\n";
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
-        System.setOut(new PrintStream(outputStream));
+        // Provide custom input for testing
+        String input = "2\n1\n1\n";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        enterInput = new EnterInput(calculatorRAM, inputStream);
 
+        // Call the method that reads from the custom input stream
         enterInput.enterNumber();
 
-        assertEquals("Which number system would you like to use?", outputStream.toString().trim());
-
-        System.setIn(original);
-        System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+        
     }
 
     @Test

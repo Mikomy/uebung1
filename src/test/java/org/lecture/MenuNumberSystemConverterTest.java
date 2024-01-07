@@ -21,7 +21,7 @@ class MenuNumberSystemConverterTest {
         saveResult = new SaveResult();
         calculatorRAM.createInput0(calculatorRAM);
         outputStream = new ByteArrayOutputStream();
-        enterInput = new EnterInput(calculatorRAM);
+        enterInput = new EnterInput(calculatorRAM, System.in);
         menu = new MenuNumberSystemConverter(calculatorRAM);
     }
 

@@ -60,7 +60,7 @@ public class MenuNumberSystemConverter {
    -----------------------------------------------------
   Enter your choice: """;
         calculatorRAM.createInput0(calculatorRAM);
-        EnterInput enterInput = new EnterInput(calculatorRAM);
+        EnterInput enterInput = new EnterInput(calculatorRAM, System.in);
         boolean loop = true;
         System.out.println("\n---\nWelcom to the Number Converter!\n---\n");
         while (loop) {

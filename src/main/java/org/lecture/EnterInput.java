@@ -1,5 +1,6 @@
 package org.lecture;
 
+import java.io.InputStream;
 import java.util.Scanner;
 
 /**
@@ -10,9 +11,9 @@ public class EnterInput {
     private CalculatorRAM calculatorRAM;
     private static Scanner scanner;
 
-    public EnterInput(CalculatorRAM calculatorRAM) {
+    public EnterInput(CalculatorRAM calculatorRAM, InputStream inputStream) {
         this.calculatorRAM = calculatorRAM;
-        scanner = new Scanner(System.in);
+        scanner = new Scanner(inputStream);
     }
 
     /**
