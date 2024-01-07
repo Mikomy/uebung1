@@ -51,14 +51,14 @@ public class MenuNumberSystemConverter {
                 """;
   */
         String menu = """
-   -----------------------------------------------------
-  |  Press 1  |  Enter a number in a specific system    |
-  |  Press 2  |  Choose an Arithmetic Operation         |
-  |  Press 3  |  Enter second numbers for calculation   |
-  |  Press 9  |  Get a result                           |
-  |  Press 0  |  EXIT                                   |
-   -----------------------------------------------------
-  Enter your choice: """;
+                 -----------------------------------------------------
+                 \uD83D\uDCAC  Press 1  |  Enter a number in a specific system
+                 \uD83D\uDCAC  Press 2  |  Choose an operation (Convert, Addition, Subtraction, etc.)
+                 \uD83D\uDCAC  Press 3  |  Enter additional details
+                 \uD83D\uDCAC  Press 9  |  Calculate or convert
+                 \uD83D\uDCAC  Press 0  |  EXIT
+                 -----------------------------------------------------
+                Enter your choice: """;
         calculatorRAM.createInput0(calculatorRAM);
         EnterInput enterInput = new EnterInput(calculatorRAM, System.in);
         boolean loop = true;
