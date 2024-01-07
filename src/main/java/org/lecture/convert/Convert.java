@@ -180,53 +180,42 @@ public class Convert implements NumberSystemConverter {
         return sbresult.toString();
     }
 
+
     /**
-     * Change the partial number of input to hexadecimal character
+     * Converts a number from hexadecimal to its decimal equivalent.
+     *
+     * @param hexadecimalChar The hexadecimal character to be converted.
+     * @return The decimal equivalent of the given hexadecimal character.
      */
     private String getHexadecimal(String hexadecimalChar) {
-        if (hexadecimalChar.equals("10")) {
-            hexadecimalChar = "A";
+        // Ignoriere die Groß- und Kleinschreibung bei der Vergleich
+        switch (hexadecimalChar.toUpperCase()) {
+            case "10": return "A";
+            case "11": return "B";
+            case "12": return "C";
+            case "13": return "D";
+            case "14": return "E";
+            case "15": return "F";
+            default: return hexadecimalChar;
         }
-        if (hexadecimalChar.equals("11")) {
-            hexadecimalChar = "B";
-        }
-        if (hexadecimalChar.equals("12")) {
-            hexadecimalChar = "C";
-        }
-        if (hexadecimalChar.equals("13")) {
-            hexadecimalChar = "D";
-        }
-        if (hexadecimalChar.equals("14")) {
-            hexadecimalChar = "E";
-        }
-        if (hexadecimalChar.equals("15")) {
-            hexadecimalChar = "F";
-        }
-        return hexadecimalChar;
     }
 
     /**
-     * Change the partial hexadecimal number of the input to  decimal number
+     * Converts a partial hexadecimal number to its decimal equivalent.
+     *
+     * @param hexadecimalDigit The partial hexadecimal number to be converted.
+     * @return The decimal equivalent of the given partial hexadecimal number.
      */
     private String hexadecimalWriteFormToDecimal(String hexadecimalDigit) {
-        if (hexadecimalDigit.equals("A")) {
-            return "10";
+        // Ignoriere die Groß- und Kleinschreibung bei der Vergleich
+        switch (hexadecimalDigit.toUpperCase()) {
+            case "A": return "10";
+            case "B": return "11";
+            case "C": return "12";
+            case "D": return "13";
+            case "E": return "14";
+            case "F": return "15";
+            default: return hexadecimalDigit;
         }
-        if (hexadecimalDigit.equals("B")) {
-            return "11";
-        }
-        if (hexadecimalDigit.equals("C")) {
-            return "12";
-        }
-        if (hexadecimalDigit.equals("D")) {
-            return "13";
-        }
-        if (hexadecimalDigit.equals("E")) {
-            return "14";
-        }
-        if (hexadecimalDigit.equals("F")) {
-            return "15";
-        }
-        return hexadecimalDigit;
     }
 }
